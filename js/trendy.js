@@ -48,5 +48,19 @@ const displayNews = async (newsAll) => {
         newsContainer.appendChild(newsDiv);
     })
 }
+const loadPostDetails = async id => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayPostDetails(data.data);
+}
+
+const displayPostDetails = post => {
+    console.log(post);
+    const modalTitle = document.getElementById('detailsPostModalLabel');
+    modalTitle.innerText = post[0].author.name ? post[0].author.name : `No Author Available`;
+    const modalBody = document.getElementById('viewsTotal');
+    modalBody.innerText = `Views: ${post[0].total_view ? post[0].total_view : `Not Found`}`;
+}
 
 loadCategory()
