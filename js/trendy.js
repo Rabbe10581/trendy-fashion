@@ -40,7 +40,7 @@ const displayNews = async (newsAll) => {
                         <div class="d-flex flex-row justify-content-between px-3">
                             <p class="fw-semibold">${news.author.name}</p>
                             <p class="fw-semibold">Views: ${news.total_view}</p>
-                            <button class="btn btn-primary">Details</button>
+                            <button onclick="loadPostDetails('${news._id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailsPostModal">Details</button>
                         </div>
                 </div>
             </div>
