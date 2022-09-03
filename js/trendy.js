@@ -32,14 +32,14 @@ const loadNews = async (url) => {
 }
 
 const displayNews = async (newsAll) => {
-    console.log(newsAll);
+    // console.log(newsAll);
     const countPostString = newsAll.length;
     const countPost = parseInt(countPostString);
     totalPosts(countPost);
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = ``;
     newsAll.forEach(news => {
-        console.log(news);
+        // console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('col');
         newsDiv.innerHTML = `
@@ -97,6 +97,11 @@ const displayPostDetails = post => {
     modalTitle.innerText = post[0].author.name ? post[0].author.name : `No Author Available`;
     const modalBody = document.getElementById('viewsTotal');
     modalBody.innerText = `Views: ${post[0].total_view ? post[0].total_view : `Not Found`}`;
+    const modalDetails = document.getElementById('modal-details');
+    modalDetails.innerText = `${post[0].details.slice(0, 200)}`;
+    const modalRating = document.getElementById('modal-rating');
+    modalRating.innerText = `Rating: ${post[0].rating.number}`;
+
 }
 loadNews('https://openapi.programming-hero.com/api/news/category/08')
 loadCategory()
