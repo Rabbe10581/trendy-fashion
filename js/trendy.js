@@ -15,9 +15,9 @@ const displayCategory = async (categories) => {
     categories.forEach(category => {
         // console.log(category);
         const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add('d-inline-block', 'px-4', 'my-2')
+        categoryDiv.classList.add('d-inline', 'px-3', 'my-2')
         categoryDiv.innerHTML = `
-        <p onclick="loadNews('https://openapi.programming-hero.com/api/news/category/${category.category_id}')" class="btn btn-white bg-color"> ${category.category_name}</p>
+        <p onclick="loadNews('https://openapi.programming-hero.com/api/news/category/${category.category_id}')" class="btn btn-white category-text"> ${category.category_name}</p>
         `;
         categoryContainer.appendChild(categoryDiv);
     })
@@ -47,7 +47,7 @@ const displayNews = async (newsAll) => {
                 <img class="card-img-top img-fluid w-25" src="${news.image_url}" alt="...">
                 <div class="card-body flex-row">
                         <h5 class="card-title fs-4 pb-2 fw-semibold">${news.title}</h5>
-                        <p class="card-text fw-light">${news.details.slice(0, 250)}</p>
+                        <p id="details" class="card-text fw-light">${news.details}</p>
                         <div class="d-flex flex-row justify-content-between px-3">
                             <div class="d-flex flex-row">
                                 <img class="author-img rounded-circle" src="${news.author.img}" alt="">
