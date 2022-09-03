@@ -33,6 +33,8 @@ const loadNews = async (url) => {
 
 const displayNews = async (newsAll) => {
     // console.log(newsAll);
+    // sort by most viewers
+    let x = newsAll.sort((a, b) => (b.total_view > a.total_view ? 1 : -1));
     const countPostString = newsAll.length;
     const countPost = parseInt(countPostString);
     totalPosts(countPost);
