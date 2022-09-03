@@ -2,6 +2,12 @@ const loadCategory = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     const res = await fetch(url);
     const data = await res.json();
+    try {
+        if (data === "") throw "empty";
+    }
+    catch (err) {
+        console.log("error");
+    }
     displayCategory(data.data.news_category);
 }
 const displayCategory = async (categories) => {
@@ -89,5 +95,4 @@ const displayPostDetails = post => {
     const modalBody = document.getElementById('viewsTotal');
     modalBody.innerText = `Views: ${post[0].total_view ? post[0].total_view : `Not Found`}`;
 }
-
 loadCategory()
