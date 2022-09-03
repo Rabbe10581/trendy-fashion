@@ -34,4 +34,30 @@ body {
     .category-text {
         color: aliceblue;
     }
+
+    .post-image {
+        width: 100vh !important;
+    }
+
+    .post-title {
+        font-size: 16px !important;
+    }
+
+    .post-details {
+        font-size: 13px;
+    }
+
+    .author-name {
+
+        font-size: 13px;
+        margin-bottom: 0 !important;
+    }
+
+    .post-views {
+        font-size: 13px;
+    }
+
+    .post-btn {
+        padding: 2px 2px;
+    }
 }

@@ -44,17 +44,17 @@ const displayNews = async (newsAll) => {
         newsDiv.classList.add('col');
         newsDiv.innerHTML = `
             <div class="card flex-column flex-md-row align-items-center">
-                <img class="card-img-top img-fluid w-25" src="${news.image_url}" alt="...">
+                <img class="card-img-top img-fluid w-25 post-image" src="${news.image_url}" alt="...">
                 <div class="card-body flex-row">
-                        <h5 class="card-title fs-4 pb-2 fw-semibold">${news.title}</h5>
-                        <p id="details" class="card-text fw-light">${news.details}</p>
-                        <div class="d-flex flex-row justify-content-between px-3">
-                            <div class="d-flex flex-row">
+                        <h5 class="card-title fs-4 pb-2 fw-semibold post-title">${news.title}</h5>
+                        <p id="details" class="card-text fw-light post-details">${news.details}</p>
+                        <div class="d-flex flex-row justify-content-between px-md-3">
+                            <div class="d-flex flex-row author-name">
                                 <img class="author-img rounded-circle" src="${news.author.img}" alt="">
-                                <p class="fw-semibold ps-2">${news.author.name}</p>
+                                <p class="fw-semibold ps-2 ">${news.author.name}</p>
                             </div>
-                            <p class="fw-semibold">Views: ${news.total_view}</p>
-                            <button onclick="loadPostDetails('${news._id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailsPostModal">Details</button>
+                            <p class="fw-semibold post-views">Views: ${news.total_view}</p>
+                            <button onclick="loadPostDetails('${news._id}')" class="btn btn-primary post-btn" data-bs-toggle="modal" data-bs-target="#detailsPostModal">Details</button>
                         </div>
                 </div>
             </div>
