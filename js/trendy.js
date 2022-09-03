@@ -17,7 +17,7 @@ const displayCategory = async (categories) => {
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add('d-inline', 'px-3', 'my-2')
         categoryDiv.innerHTML = `
-        <p onclick="loadNews('https://openapi.programming-hero.com/api/news/category/${category.category_id}')" class="btn btn-white category-text"> ${category.category_name}</p>
+        <button onclick="loadNews('https://openapi.programming-hero.com/api/news/category/${category.category_id}')" class="btn btn-white btn-category category-text"> ${category.category_name}</button>
         `;
         categoryContainer.appendChild(categoryDiv);
     })

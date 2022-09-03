@@ -2,6 +2,11 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.btn-category:hover {
+    background: rgb(203, 6, 6);
+    color: beige;
+}
+
 .author-img {
     height: 30px;
     width: 30px;
