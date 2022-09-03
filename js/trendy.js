@@ -9,9 +9,9 @@ const displayCategory = async (categories) => {
     categories.forEach(category => {
         // console.log(category);
         const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add('d-inline-block', 'px-4', 'my-4')
+        categoryDiv.classList.add('d-inline-block', 'px-4', 'my-2')
         categoryDiv.innerHTML = `
-        <p onclick="loadNews('https://openapi.programming-hero.com/api/news/category/${category.category_id}')" class="btn btn-white"> ${category.category_name}</p>
+        <p onclick="loadNews('https://openapi.programming-hero.com/api/news/category/${category.category_id}')" class="btn btn-white bg-color"> ${category.category_name}</p>
         `;
         categoryContainer.appendChild(categoryDiv);
     })
@@ -24,8 +24,12 @@ const loadNews = async (url) => {
     const data = await res.json();
     displayNews(data.data);
 }
-// news.details.slice(0, 300)
+
 const displayNews = async (newsAll) => {
+    console.log(newsAll);
+    const countPostString = newsAll.length;
+    const countPost = parseInt(countPostString);
+    totalPosts(countPost);
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = ``;
     newsAll.forEach(news => {
@@ -50,6 +54,15 @@ const displayNews = async (newsAll) => {
     })
     //Stop Loader
     toogleSpinner(false);
+}
+const totalPosts = (sum) => {
+    const countContainer = document.getElementById('count-container');
+    countContainer.innerHTML = '';
+    const countDiv = document.createElement('div');
+    countDiv.innerHTML = `
+    <h4 class="text-info px-3 py-3 rounded-3 bg-light">${sum} items found in this category.</h4>
+    `;
+    countContainer.appendChild(countDiv);
 }
 
 const toogleSpinner = isLoading => {
